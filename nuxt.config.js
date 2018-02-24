@@ -51,7 +51,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    publicPath: "/",
+    publicPath: "/assets/",
 
     babel: {
       plugins: [
