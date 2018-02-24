@@ -45,7 +45,29 @@ module.exports = {
   /*
   ** Nuxt.js modules
   */
-  modules: [],
+  modules: [
+    [
+      '@nuxtjs/pwa', {
+        icon: false,
+        manifest: {
+          name: 'Nuxtify',
+          lang: 'en'
+        },
+        workbox: {
+          runtimeCaching: [
+            {
+              // Should be a regex string. Compiles into new RegExp('https://my-cdn.com/.*')
+              urlPattern: 'https://fonts.googleapis.com/.*|/assets/.*',
+              // Defaults to `networkFirst` if omitted
+              handler: 'cacheFirst',
+              // Defaults to `GET` if omitted
+              method: 'GET'
+            }
+          ]
+        }
+      }
+    ]
+  ],
 
   /*
   ** Build configuration
